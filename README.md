@@ -2,7 +2,7 @@
 <h1>raspberry-fi-fingerprint-attendance-system</h1>
 <h2>For small size office</h2>
 
-Raspberry pi Model : <b>Raspberry pi 3</b>
+Raspberry pi Model : <b>Raspberry pi 3</b><br>
 Figner print scanner Model : <b>FPM10A</b>
 
 This is for small size office staff attendance system with low cost
