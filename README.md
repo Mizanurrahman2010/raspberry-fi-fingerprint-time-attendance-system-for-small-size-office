@@ -1,6 +1,8 @@
-"# raspberry-fi-fingerprint-attendance-system" 
-Raspberry pi Model : Raspberry pi 3
-Figner print scanner Model : FPM10A
+"# raspberry-fi-fingerprint-attendance-system"
+<h1>raspberry-fi-fingerprint-attendance-system</h1>
+
+Raspberry pi Model : <h3>Raspberry pi 3</h3>
+Figner print scanner Model : <h3>FPM10A</h3>
 
 This is for small size office staff attendance system with low cost
 
