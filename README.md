@@ -6,7 +6,9 @@ This is for small size office staff attendance system with low cost
 
 
 The features:
-    Fully Admin panel with login
+    <ul>
+<li>Fully Admin panel with login</li>
+</ul>
     Office Staff panel with login
     real time calculaitn
     reporting
