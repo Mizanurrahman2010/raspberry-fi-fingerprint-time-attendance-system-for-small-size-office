@@ -1,5 +1,5 @@
 "# raspberry-fi-fingerprint-attendance-system"
-<h1>raspberry fi fingerprint attendance system for small size office in web base</h1>
+<h1>raspberry fi fingerprint time attendance system for small size office in web base</h1>
 
 Raspberry pi Model : <b>Raspberry pi 3</b><br>
 Figner print scanner Model : <b>FPM10A</b>
