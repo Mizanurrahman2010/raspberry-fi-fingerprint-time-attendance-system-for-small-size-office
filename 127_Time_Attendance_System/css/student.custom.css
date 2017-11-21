@@ -1,0 +1,54 @@
+/*
+Template Name: student section
+Version: 1.0.0
+Author: MD. Mizanur rahman
+Website: http://www.batit.net/
+*/
+
+.academic_information .table>tbody>tr>td,
+.academic_information .table>tbody>tr>th,
+.academic_information .table>tfoot>tr>td,
+.academic_information .table>tfoot>tr>th,
+.academic_information .table>thead>tr>td,
+.academic_information .table>thead>tr>th,
+
+.current_semester .table>tbody>tr>td,
+.current_semester .table>tbody>tr>th,
+.current_semester .table>tfoot>tr>td,
+.current_semester .table>tfoot>tr>th,
+.current_semester .table>thead>tr>td,
+.current_semester .table>thead>tr>th
+{
+    padding: 5px 8px;
+}
+
+/*start : image upload box*/
+.input-file-con
+{
+    overflow: hidden;
+    position: relative;
+}
+
+.input-file-con input[type=file]
+{
+    width: 600px;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    height: 300px;
+    opacity: 0;
+    cursor: pointer;
+}
+.input-file-con .view
+{
+    background: #FFFFFF;
+    width: 98%;
+    height: 98%;
+    color: #3B5998;
+    margin: 1%;
+}
+.input-file-con img
+{
+    max-height:200px;
+}
+/*end : image upload box*/

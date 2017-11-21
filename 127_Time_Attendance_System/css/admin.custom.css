@@ -1,0 +1,70 @@
+/*
+Template Name: admin section
+Version: 1.0.0
+Author: MD. Mizanur rahman
+Website: http://www.batit.net/
+*/
+
+/*start : image upload box*/
+.input-file-con
+{
+    overflow: hidden;
+    position: relative;
+    width:202px;
+    height:202px;
+}
+
+.input-file-con input[type=file]
+{
+    width: 100%;
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    height: 100%;
+    opacity: 0;
+    cursor: pointer;
+}
+.input-file-con .view
+{
+    background: #FFFFFF;
+    width: 98%;
+    height: 98%;
+    color: #3B5998;
+    margin: 1%;
+}
+.input-file-con img
+{
+    max-height:200px;
+}
+/*end : image upload box*/
+.overlay
+{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    z-index: 999;
+    opacity: 0.0;
+    bottom: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+}
+.sidebar .sub-menu>li>a
+{
+    font-weight: normal;
+}
+
+.btn {
+    font-weight: 400;
+}
+
+.btn-default {
+    color: #333;
+    background-color: #fff;
+    border-color: #ccc;
+}
+.btn-group-text-left .btn
+{
+    text-align: left;
+}
