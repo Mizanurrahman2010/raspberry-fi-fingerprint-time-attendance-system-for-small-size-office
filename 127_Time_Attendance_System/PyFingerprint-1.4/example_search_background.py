@@ -202,8 +202,8 @@ def InsertInDB(fps_id):
             is_entry = False
             is_out   = False
 
-            entry_status = 1 # 0 = no entry, 1 = intime, 2 = late,        3 = early come
-            out_status   = 1 # 0 = no out,   1 = intime, 2 = early leave, 3 = late leave
+            entry_status = 0 # 0 = no entry, 1 = intime, 2 = late,        3 = early come
+            out_status   = 0 # 0 = no out,   1 = intime, 2 = early leave, 3 = late leave
 
             in_interval_time  = ''
             out_interval_time = ''

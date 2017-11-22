@@ -2,7 +2,7 @@
 
 @section('content')
 <!-- begin #content -->
-<div id="content" class="content report_attendance_person">
+<div id="content" class="content">
     {{ csrf_field() }}
     <!-- begin breadcrumb -->
     <ol class="breadcrumb pull-right">
@@ -109,6 +109,7 @@
                                 <th>#</th>
                                 <th>Date</th>
                                 <th>Name</th>
+                                <th>Shift Name</th>
                                 <th>Entry Time</th>
                                 <th>Out Time</th>
                                 <th>Work Duration</th>
@@ -123,6 +124,7 @@
                             <tr>
                                 <td>1</td>
                                 <td>01-11-2017</td>
+                                <td>MD. Mizanur rahman</td>
                                 <td>Monring Shift</td>
                                 <td>08:00:00</td>
                                 <td>04:00:00</td>
@@ -216,24 +218,20 @@
          * */
         function search()
         {
-            var e = '.report_attendance_person';
 
             var _token      = $("input[name=_token]").val();
 
-            var date_start  = $(e+" input[name=date_start]").val();
-            var date_end    = $(e+" input[name=date_end]").val();
-            var staff_id    = $(e+" select[name=staff_id]").val();
+            // var date_start  = $("input[name=date_start]").val();
+            // var date_end    = $("input[name=date_end]").val();
+            // var staff_id    = $("select[name=staff_id]").val();
 
             var info = {
 
-                _token     : _token ,
-                date_start : date_start,
-                date_end   : date_end,
-                staff_id   : staff_id
+                _token     : _token
             };
 
             request.method   = "POST"       	                    ;
-            request.route    = 'admin/report/attendance/person'     ;
+            request.route    = 'admin/report/attendance/today'     ;
             request.action   = ''          	                        ;
             request.data     = info                                 ;
             request.sync     = false		                        ;
@@ -242,13 +240,14 @@
 
             if(response)
             {
-                $(e+" table tbody").empty();
+                $("table tbody").empty();
 
                 if(response) {
                     var i = 0;
                     for (i = 0; i < response.length; i++) {
 
                         var date         = response[i]['date'];
+                        var staff_name   = response[i]['staff_name'];
                         var rule_name    = response[i]['rule_name'];
                         var entry_time   = response[i]['entry_time'];
                         var out_time     = response[i]['out_time'];
@@ -279,6 +278,7 @@
                         html += '    <tr>';
                         html += '        <td>'+ i               +'</td>';
                         html += '        <td>'+ date            +'</td>';
+                        html += '        <td>'+ staff_name      +'</td>';
                         html += '        <td>'+ rule_name       +'</td>';
                         html += '        <td>'+ entry_time      +'</td>';
                         html += '        <td>'+ out_time        +'</td>';
@@ -292,7 +292,7 @@
                         html += '        <td>'+ out_status      +'</td>';
                         html += '    </tr>';
 
-                        $(e + " table tbody").append(html);
+                        $("table tbody").append(html);
                     }
                 }
 
@@ -301,7 +301,7 @@
             }
         }
 
-        $(".report_attendance_person").on('click','.btn_search',function()
+        $("body").on('click','.btn_search',function()
         {
             search();
         });
@@ -330,7 +330,37 @@
                 $("#data-table tr td:nth-child("+n+")").hide();
                 $("#data-table tr th:nth-child("+n+")").hide();
             }
-        })
+        });
+
+
+        // Start : Statup time filter
+        // var checkboxs = $(".filter input[type=checkbox]") ;
+
+        // for (var i = 0; i < checkboxs.length; i++)
+        // {
+        //     var e = $(".filter input[type=checkbox]:nth-child("+i+")");
+
+        //     var n       = e.val();
+        //     var checked = e.prop( "checked" );
+
+        //     console.log(e);
+        //     console.log(n);
+        //     console.log(checked);
+        //     // if( checked )
+        //     // {
+        //     //     $("#data-table tr td:nth-child("+n+")").show();
+        //     //     $("#data-table tr th:nth-child("+n+")").show();
+        //     // }
+        //     // else
+        //     // {
+        //     //     $("#data-table tr td:nth-child("+n+")").hide();
+        //     //     $("#data-table tr th:nth-child("+n+")").hide();
+        //     // }
+
+        // }
+        // End : Statup time filter
+
+
         /*
          * End : filter
          * */

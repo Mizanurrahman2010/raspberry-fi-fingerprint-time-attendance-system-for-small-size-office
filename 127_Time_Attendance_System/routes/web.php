@@ -91,6 +91,8 @@ Route::prefix('admin')->group(function () {
 
     Route::get('report/attendance', 'Admin\Report\Attendance\DashboardController@dashboard');
     Route::get('report/attendance/daily', 'Admin\Report\Attendance\DailyController@daily');
+    Route::get('report/attendance/today', 'Admin\Report\Attendance\TodayController@todayView');
+    Route::post('report/attendance/today', 'Admin\Report\Attendance\TodayController@today');
     // Route::get('report/attendance/daterange', 'Admin\Report\Attendance\daterangeController@daterange');
     Route::get('report/attendance/person', 'Admin\Report\Attendance\PersonController@personView');
     Route::post('report/attendance/person', 'Admin\Report\Attendance\PersonController@person');

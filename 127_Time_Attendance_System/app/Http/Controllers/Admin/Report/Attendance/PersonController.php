@@ -91,7 +91,7 @@ class PersonController extends Controller
             ->where('staff_id', $staff_id)
             ->where('date', '>=',$date_start)
             ->where('date', '<=',$date_end)
-            ->select('a.id', 'a.staff_id', 'a.rule_id', 'a.date', 'a.entry_time', 'a.out_time', 'a.attened', 'a.entry_status', 'a.entry_status_comment', 'a.out_status', 'a.out_status_comment', 'a.delay', 'a.status', 'r.name as rule_name')
+            ->select('a.id', 'a.staff_id', 'a.rule_id', 'a.date', 'a.entry_time', 'a.out_time', 'a.attened', 'a.entry_status', 'a.entry_status_comment', 'a.entry_delay_or_advanced_duration', 'a.out_status', 'a.out_status_comment', 'a.out_delay_or_advanced_duration', 'a.work_duration', 'a.status', 'r.name as rule_name')
             ->get();
 
             if($attendance_staffs)
