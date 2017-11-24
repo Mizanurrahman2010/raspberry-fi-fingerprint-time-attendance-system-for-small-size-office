@@ -316,6 +316,8 @@
                                     <ul class="sub-menu">
                                         <li><a href="{{ url('admin/report/attendance/person') }}">Person</a></li>
                                         <li><a href="{{ url('admin/report/attendance/daily') }}">Daily</a></li>
+                                        <li><a href="{{ url('admin/report/attendance/today') }}">Today</a></li>
+                                        <li><a href="{{ url('admin/report/attendance/current') }}">Current Status</a></li>
                                     </ul>
                                 </li>
 

@@ -28,24 +28,35 @@ class UpdateController extends Controller
      */
     public function updateForm($id)
     {
-        $staff                  = DB::table('staffs')->where('id', $id)->first();
-        $departments            = DB::table('departments')->get();
-        $staff_designations     = DB::table('staff_designations')->get();
-        $staff_status           = DB::table('staff_status')->get();
-        $attendance_rules_staff = DB::table('attendance_rules_staff')
-                                            ->where('department_id', $staff->department_id)
-                                            ->where('status', 1)
-                                            ->get();
 
-        $staff->joining_date_day   = date('d', strtotime($staff->joining_date));
-        $staff->joining_date_month = date('m', strtotime($staff->joining_date));
-        $staff->joining_date_year  = date('Y', strtotime($staff->joining_date));
+        $staff = DB::table('staffs')->where('id', $id)->first();
 
-        $staff->birthday_day   = date('d', strtotime($staff->birthday));
-        $staff->birthday_month = date('m', strtotime($staff->birthday));
-        $staff->birthday_year  = date('Y', strtotime($staff->birthday));
+        if($staff)
+        {
 
-        return view('admin.staffs.update', ['staff' => $staff, 'departments' => $departments, 'staff_designations' => $staff_designations, 'staff_status' => $staff_status, 'attendance_rules_staff' => $attendance_rules_staff]);
+            $departments            = DB::table('departments')->get();
+            $staff_designations     = DB::table('staff_designations')->get();
+            $staff_status           = DB::table('staff_status')->get();
+            $attendance_rules_staff = DB::table('attendance_rules_staff')
+                                                ->where('department_id', $staff->department_id)
+                                                ->where('status', 1)
+                                                ->get();
+
+            $staff->joining_date_day   = date('d', strtotime($staff->joining_date));
+            $staff->joining_date_month = date('m', strtotime($staff->joining_date));
+            $staff->joining_date_year  = date('Y', strtotime($staff->joining_date));
+
+            $staff->birthday_day   = date('d', strtotime($staff->birthday));
+            $staff->birthday_month = date('m', strtotime($staff->birthday));
+            $staff->birthday_year  = date('Y', strtotime($staff->birthday));
+
+            return view('admin.staffs.update', ['staff' => $staff, 'departments' => $departments, 'staff_designations' => $staff_designations, 'staff_status' => $staff_status, 'attendance_rules_staff' => $attendance_rules_staff]);
+                
+        }
+        else
+        {
+            return view('admin.notfound');
+        }
     }
     
     /**
@@ -300,8 +311,8 @@ class UpdateController extends Controller
 
         $data = $request->input('data');
 
-        $_token  = $data['_token'];
-        $rules_id = $data['rules_id'];
+        $_token   = $data['_token'];
+        $rules_id = (isset($data['rules_id']))? $data['rules_id'] : [] ;
 
         /*
          * Start : Incoming data check

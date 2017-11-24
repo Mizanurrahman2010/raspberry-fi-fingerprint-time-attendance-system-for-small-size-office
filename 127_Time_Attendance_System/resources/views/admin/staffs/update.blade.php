@@ -338,16 +338,22 @@
                             <label for="current_status" class="col-md-4 control-label">Roles</label>
                             <div class="col-md-8">
                                 <div class="btn-group-vertical btn-group-text-left" role="group" aria-label="...">
-
+                                    
+                                    
                                     @foreach ($attendance_rules_staff as $rule)
                                         <?php $check = ''; ?>
-                                        @foreach (json_decode($staff->rules_id) as $rule_id)
 
-                                        <?php
-                                            if($rule->id == $rule_id){$check = 'checked';}
-                                        ?>
-                                        
-                                        @endforeach
+                                        @isset($staff->rules_id)
+
+                                            @foreach (json_decode($staff->rules_id) as $rule_id)
+
+                                            <?php
+                                                if($rule->id == $rule_id){$check = 'checked';}
+                                            ?>
+                                            
+                                            @endforeach
+
+                                        @endisset
                                         
                                     <button type="button" class="btn btn-default">
                                         <div class="checkbox"><label><input type="checkbox" name="rules[]" value="{{ $rule->id }}" {{$check}}> {{$rule->name}} </label></div>
